@@ -47,7 +47,7 @@ meta:
     repo:         (( param "Please specify the name of the Github repository" ))
     branch:       (( param "Please specify the branch of the repository" ))
     private_key:  (( param "Please generate an SSH Deployment Key for this repo and specify it here" ))
-    uri:          (( concat meta.configs_github.source ":" meta.configs_github.owner "/" meta.configs_github.repo ))
+    uri:          (( concat meta.configs_github.source "/" meta.configs_github.owner "/" meta.configs_github.repo ))
 
   params:
     VAULT_ADDR:             (( grab meta.vault.url ))
