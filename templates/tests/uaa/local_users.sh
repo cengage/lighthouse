@@ -91,8 +91,9 @@ lh_test() {
     declare -i i tests
     
     active "Verify Local Users"
-    uaa users | jq "[ .[] | {userName, active, groups: [.groups[].display]} ]" > ${dataset}
-    
+    # uaa users | jq "[ .[] | {userName, active, groups: [.groups[].display]} ]" > ${dataset}
+    uaac users | jq "[ .[] | {userName, active, groups: [.groups[].display]} ]" > ${dataset}
+
     # verify results from UAA
     if [[ $(lh_has_users) != "true" ]]
     then

@@ -745,16 +745,19 @@ uaa_login() {
   fi
 
   # Set the target UAA
-  uaa target ${UAA_ADDR} --skip-ssl-validation
+  # uaa target ${UAA_ADDR} --skip-ssl-validation
+  uaac target ${UAA_ADDR} --skip-ssl-validation
   # Authenticate
-  uaa get-client-credentials-token ${UAA_USER} -s ${UAA_PASSWORD}
+  # uaa get-client-credentials-token ${UAA_USER} -s ${UAA_PASSWORD}
+  uaac token client get ${UAA_USER} -s {UAA_PASSWORD}
 }
 
 uaa_logout() {
   step "Logged out of UAA."
 
   # logout not implemented in cli, so clear UAA profile
-  rm -rf ~/.uaa/*
+  # rm -rf ~/.uaa/*
+  rm -rf ~/.uaac.yml
 }
 
 # top level commands
