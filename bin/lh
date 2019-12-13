@@ -892,14 +892,14 @@ meta:
     owner:  ${GITHUB_OWNER}
     repo:   ${GITHUB_REPO}
     branch: ${GITHUB_BRANCH}
-    private_key:  (( vault "secret/pipelines/shared/github/genesis-bot:private" ))
+    private_key:  (( vault "secret/c/ops/concourse/stash/ssh_key:private" ))
 
   configs_github:
     source: ${GITHUB_CONFIGS_SOURCE}
     owner:  ${GITHUB_CONFIGS_OWNER}
     repo:   ${GITHUB_CONFIGS_REPO}
     branch: ${GITHUB_CONFIGS_BRANCH}
-    private_key:  (( vault "secret/pipelines/shared/github/lighthouse-config-bot:private" ))
+    private_key:  (( vault "secret/c/ops/concourse/stash/ssh_key:private" ))
 EOF
 
 
